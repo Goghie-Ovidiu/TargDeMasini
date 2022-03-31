@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TargDeMasini", "TargDeMasini.csproj", "{AFDB0B55-5D40-442C-BF16-9E28FC1CFA65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Masini", "..\Masini\Masini.csproj", "{7C25DEBA-D18A-49D6-AFCF-2CB6D594DDDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fisier", "..\Fisier\Fisier.csproj", "{75651F4D-2F87-46BE-9DE9-8ACB9F180E2A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFDB0B55-5D40-442C-BF16-9E28FC1CFA65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFDB0B55-5D40-442C-BF16-9E28FC1CFA65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFDB0B55-5D40-442C-BF16-9E28FC1CFA65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFDB0B55-5D40-442C-BF16-9E28FC1CFA65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C25DEBA-D18A-49D6-AFCF-2CB6D594DDDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C25DEBA-D18A-49D6-AFCF-2CB6D594DDDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C25DEBA-D18A-49D6-AFCF-2CB6D594DDDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C25DEBA-D18A-49D6-AFCF-2CB6D594DDDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75651F4D-2F87-46BE-9DE9-8ACB9F180E2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75651F4D-2F87-46BE-9DE9-8ACB9F180E2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75651F4D-2F87-46BE-9DE9-8ACB9F180E2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75651F4D-2F87-46BE-9DE9-8ACB9F180E2A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FBE5940E-C270-48FC-8BA4-2B535C4A5BEF}
+	EndGlobalSection
+EndGlobal

@@ -50,6 +50,26 @@ namespace Fisier
             return string.Format("{0} {1} ", nume_vanzator, nume_cumparator);
         }
 
+        //cautare an fab
+        public string GetMasinaAnFab(string an_fab)
+        {
+            using (StreamReader streamReader = new StreamReader(numeFisier))
+            {
+                string linieFisier;
+                while ((linieFisier = streamReader.ReadLine()) != null)
+                {
+                    string[] linie = linieFisier.Split(';');
+                    if (linie[5] == an_fab)
+                    {
+                        string result = string.Format("{0} {1} {2} {3}", linie[0], linie[1], linie[2], linie[5]);
+                        return result;
+                    }
+
+                }
+            }
+            return string.Format("{0} {1} ", an_fab);
+        }
+
 
 
         public TargMasini[] GetMasini(out int nrMasini)

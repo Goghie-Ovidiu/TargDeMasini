@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,11 +47,19 @@ namespace TargDeMasini
                     case "L":
                         Console.WriteLine("");
                         Console.WriteLine("Introduceti numele vanzatorului");
-                        string var_vanzator=Console.ReadLine();
+                        string var_vanzator=Console.ReadLine().ToUpper();
                         Console.WriteLine("Introduceti numele cumparatorului");
-                        string var_cumparator=Console.ReadLine();
+                        string var_cumparator=Console.ReadLine().ToUpper();
                         Console.WriteLine(adminMasini.GetMasina(var_vanzator,var_cumparator));
                         break;
+                        //cautare dupa an fab
+                    case "A":
+                        Console.WriteLine("");
+                        Console.WriteLine("Introduceti an fab");
+                        string var_anfab = Console.ReadLine().ToUpper();
+                        Console.WriteLine(adminMasini.GetMasinaAnFab(var_anfab));
+                        break;
+
 //Lab 3 salvarea datelor
                     case "S":
                         Console.WriteLine("");
@@ -128,35 +137,199 @@ namespace TargDeMasini
         public static TargMasini CitireMasinaTastatura()
         {
             Console.WriteLine("Introduceti numele vanzatorului ");
-            string numevanzator = Console.ReadLine();
+            string numevanzator = Console.ReadLine().ToUpper();
 
             Console.WriteLine("Introduceti nume cumparatorului ");
-            string numecumparator = Console.ReadLine();
+            string numecumparator = Console.ReadLine().ToUpper();
 
-            Console.WriteLine("Introduceti firma masinei ");
-            string firma = Console.ReadLine();
+            Console.WriteLine("Alegeti firma masinii ");
+            Console.WriteLine("1.Volkswagen 2.BMW 3.Mercedes-Benz 4.Audi 5.Ford 6.Skoda 7.Opel 8.Renault 9.Nissan 10.Toyota 11.Hyundai 12.Land Rover 13.Mazda"+
+                "14.Porsche 15.Fiat 16.Jeep 17.Mitsubishi 18.Suzuki 19.Seat 20.Citroën");
+            int opp;
+            int.TryParse(Console.ReadLine(), out opp);
+            string fir = "";
+            int c = 0;
+            while(c==0)
+            {
+                if(opp==1)
+                {
+                    fir ="Volkswagen";
+                    c = 1;
+                }
+                else if(opp==2)
+                { fir = "BMW";c = 1; }
+                else if(opp==3)
+                { fir = "Mercedes-Benz";c = 1; }
+                else if(opp==4)
+                { fir = "Audi";c = 1; }
+                else if (opp==5)
+                { fir = "Ford";c = 1; }
+                else if (opp==6)
+                { fir = "Skoda";c= 1; }
+                else if (opp ==7)
+                { fir = "Opel";c=1; }
+                else if(opp ==8)
+                { fir = "Renault"; c = 1; }
+                else if (opp==9)
+                { fir = "Nissan";c = 1; }
+                else if (opp==10)
+                { fir = "Toyota";c = 1; }
+                else
+                { Console.WriteLine("Introduceti firma de la tastatura ");
+                    fir=Console.ReadLine();
+                    c = 1;
+                }
+                
+            }
+            Console.WriteLine(fir);
+            string firma =fir.ToUpper();
 
             Console.WriteLine("Introduceti modelul masinei");
-            string model = Console.ReadLine();
+            string model = Console.ReadLine().ToUpper();
 
             Console.WriteLine("Introduceti anul de fabricatie");
-            string an_fab = Console.ReadLine();
 
+            int an_fabricat;
+            int.TryParse(Console.ReadLine(), out an_fabricat);
+            int k=0;
+            while(k==0)
+            {
+                if(an_fabricat == 0)
+                {
+                    Console.WriteLine("Anul contine litere. Introduceti anul:");
+                    int.TryParse(Console.ReadLine(), out an_fabricat);
+                    k = 0;
+                }
+                else
+                {
+                    k = 1;
+                }
+            }
+
+
+            
+            string an_fab = Convert.ToString(an_fabricat);
             Console.WriteLine("Introduceti culoarea");
-            string culoare = Console.ReadLine();
+            string culoare = Console.ReadLine().ToUpper();
 
             Console.WriteLine("Introduceti optiuni");
-            string optiuni = Console.ReadLine();
+            string optiuni = Console.ReadLine().ToUpper();
 
             Console.WriteLine("Introduceti data tranzactie");
-            string data_tranz = Console.ReadLine();
+            
+            string data_tranz="",aann="",lunaaa="",ziuaaa="";
+
+
+            Console.WriteLine("anul:");
+            int an = Convert.ToInt32(Console.ReadLine());
+            string anul;
+            int ok = 0;
+            while (ok == 0)
+            {
+      
+                    if (an>=an_fabricat)
+                    {
+                        anul = Convert.ToString(an);
+                        aann = anul;
+                        ok = 1;
+                    }
+                    else
+                    {
+                        Console.WriteLine("In acest an nu s-a fabricat masina");
+                        an = Convert.ToInt32(Console.ReadLine());
+                        ok = 0;
+                    }
+            }
+
+
+
+            Console.WriteLine("luna:");
+            int luna = Convert.ToInt32(Console.ReadLine());
+            string lu;
+            while (ok == 1)
+            {
+                if (luna > 0 && luna < 13)
+                {
+                    lu = Convert.ToString(luna);
+                    lunaaa = lu;
+                    ok = 2;
+                }
+                else
+                {
+                    Console.WriteLine("Nu exista luna");
+                    luna = Convert.ToInt32(Console.ReadLine());
+                    ok = 1;
+                }
+            }
+
+            Console.WriteLine("ziua:");
+            int ziua =Convert.ToInt32(Console.ReadLine());
+            string zz;
+            
+            while(ok==2)
+            {
+                if (luna == 1 || luna == 3 || luna == 5 || luna == 7 || luna == 8 || luna == 10 || luna == 12)
+                {
+                    if (ziua > 0 && ziua < 32)
+                    {
+                        zz = Convert.ToString(ziua);
+                        ziuaaa = zz;
+                        ok = 3;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Nu exista aceasta zi. Introduceti ziua");
+                        ziua = Convert.ToInt32(Console.ReadLine());
+                        ok = 2;
+
+                    }
+                }
+                else if (luna == 2)
+                {
+                    if (ziua > 0 && ziua < 29)
+                    {
+                        zz = Convert.ToString(ziua);
+                        ziuaaa= zz;
+                        ok = 3;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Nu exista aceasta zi. Introduceti ziua");
+                        ziua = Convert.ToInt32(Console.ReadLine());
+                        ok = 2;
+
+                    }
+                }
+                else
+                {
+                    if (ziua > 0 && ziua < 31)
+                    {
+                        zz = Convert.ToString(ziua);
+                        ziuaaa = zz;
+                        ok = 3;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Nu exista aceasta zi. Introduceti ziua");
+                        ziua = Convert.ToInt32(Console.ReadLine());
+                        ok = 2;
+
+                    }
+                }
+
+            }
+
+            data_tranz = ziuaaa +"/"+ lunaaa +"/"+ aann;
+            
+
 
             Console.WriteLine("Introduceti pretul");
-            string pret = Console.ReadLine();
+            string pret = Console.ReadLine().ToUpper();
 
             TargMasini masina = new TargMasini(0, numevanzator, numecumparator, model, firma, an_fab, culoare, optiuni, data_tranz, pret);
 
             return masina;
         }
+        
     }
 }

@@ -209,11 +209,79 @@ namespace TargDeMasini
 
             
             string an_fab = Convert.ToString(an_fabricat);
-            Console.WriteLine("Introduceti culoarea");
-            string culoare = Console.ReadLine().ToUpper();
+
+//Lab5
+
+            Console.WriteLine("Alegeti culoarea ");
+            Console.WriteLine("1 - Rosu \n" +
+            "2 - Verde \n" +
+            "3 - Negru \n"+
+            "4 - Albastru\n" +
+            "5 - Alb\n" +
+            "6 - Portocaliu\n" +
+            "7 - Gri\n");
+            int optiune = Convert.ToInt32(Console.ReadLine());
+            int l=0;
+            while(l==0)
+            {
+                if (optiune == 1)
+                { Console.WriteLine($"Ati ales culoare: {(culori)optiune}"); l = 2; }
+                else if(optiune == 2)
+                { Console.WriteLine($"Ati ales culoare: {(culori)optiune}"); l = 2; }
+                else if(optiune==3)
+                { Console.WriteLine($"Ati ales culoare: {(culori)optiune}"); l = 2; }
+                else if (optiune == 4)
+                { Console.WriteLine($"Ati ales culoare: {(culori)optiune}"); l = 2; }
+                else if(optiune==5)
+                { Console.WriteLine($"Ati ales culoare: {(culori)optiune}"); l = 2; }
+                else if(optiune==6)
+                { Console.WriteLine($"Ati ales culoare: {(culori)optiune}"); l = 2; }
+                else if(optiune==7)
+                { Console.WriteLine($"Ati ales culoare: {(culori)optiune}"); l = 2; }
+                else
+                {
+                    Console.WriteLine("Optiune inexistenta");
+                    optiune = Convert.ToInt32(Console.ReadLine());
+                    l = 0;
+                }
+            }
+            var s = (culori)optiune;
+            string culoare = s.ToString();
 
             Console.WriteLine("Introduceti optiuni");
-            string optiuni = Console.ReadLine().ToUpper();
+
+
+            Console.WriteLine("Are optiuni?");
+            string optiunee = Convert.ToString(Console.ReadLine()).ToUpper();
+            string op = "";
+            string ss = "";
+            if (optiunee == "DA")
+            {
+                Console.WriteLine("Aer conditionat?");
+                op = Console.ReadLine().ToUpper();
+                if (op == "DA")
+                    ss = ss + Optiuni.Aer_Conditionat + " ";
+                else if (op == "NU")
+                    ss = ss;
+                Console.WriteLine("Navigatie ");
+                op = Console.ReadLine().ToUpper();
+                if (op == "DA")
+                    ss = ss + Optiuni.Navigatie + " ";
+                else if (op == "NU")
+                    ss = ss;
+                Console.WriteLine("cutie automata ");
+                op = Console.ReadLine().ToUpper();
+                if (op == "DA")
+                    ss = ss + Optiuni.Cutie_Automata + " ";
+                else if (op == "NU")
+                    ss = ss;
+            }
+            if (ss == string.Empty)
+                ss = "Nu exista optiuni";
+            string optiuni = ss;
+
+
+
 
             Console.WriteLine("Introduceti data tranzactie");
             
@@ -329,6 +397,26 @@ namespace TargDeMasini
             TargMasini masina = new TargMasini(0, numevanzator, numecumparator, model, firma, an_fab, culoare, optiuni, data_tranz, pret);
 
             return masina;
+        }
+
+        public enum culori
+        {
+            Rosu = 1,
+            Verde = 2,
+            Negru = 3,
+            Albastru=4,
+            Alb=5,
+            Portocaliu=6,
+            Gri=7
+
+        };
+
+        [Flags]
+        public enum Optiuni
+        {
+            Aer_Conditionat,
+            Navigatie,
+            Cutie_Automata
         }
         
     }

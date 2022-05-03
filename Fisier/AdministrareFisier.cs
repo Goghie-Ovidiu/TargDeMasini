@@ -86,7 +86,7 @@ namespace Fisier
                     masini[nrMasini++] = new TargMasini(linieFisier);
                 }
             }
-
+            Array.Resize(ref masini, nrMasini);
             return masini;
         }
 

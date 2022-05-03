@@ -21,18 +21,19 @@ namespace Masini
         private const int PRET = 9;
 
 
-        private int idMasina;
-        private string nume_vanzator;
-        private string nume_cumparator;
-        private string model;
-        private string firma;
-        private string an_fab;
-        private string culoare;
-        private string optiuni;
-        private string data_tranz;
-        private string pret;
+        public int idMasina { get; set; }
+        public string nume_vanzator { get; set; }
+        public string nume_cumparator { get; set; }
+        public string model { get; set; }
+        public string firma { get; set; }
+        public string an_fab { get; set; }
+        public string culoare { get; set; }
+        public string optiuni { get; set; }
+        public string data_tranz { get; set; }
+        public string pret { get; set; }
 
- 
+
+
         public TargMasini()
         {
             nume_vanzator = nume_cumparator = model = string.Empty;

@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Culori.cs" />
     <Compile Include="TargMasini.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

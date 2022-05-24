@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using static Masini.Enumerari;
 namespace Masini
 {
     public class TargMasini
     {
-        private const char SEPARATOR_PRINCIPAL_FISIER = ';';
+        private const char SEPARATOR_PRINCIPAL_FISIER = ' ';
         private const int ID = 0;
         private const int NUME_VANZATOR = 1;
         private const int NUME_CUMPARATOR = 2;
-        private const int MODEL = 3;
-        private const int FIRMA = 4;
+        private const int MODEL = 4;
+        private const int FIRMA = 3;
         private const int AN_FAB = 5;
         private const int CULOARE = 6;
         private const int OPTIUNI = 7;
@@ -32,23 +32,23 @@ namespace Masini
         public string data_tranz { get; set; }
         public string pret { get; set; }
 
-
+        
 
         public TargMasini()
         {
-            nume_vanzator = nume_cumparator = model = string.Empty;
-            firma = an_fab = culoare = optiuni = string.Empty;
+            nume_vanzator = nume_cumparator = firma = string.Empty;
+            model = an_fab = culoare = optiuni = string.Empty;
             data_tranz = pret = string.Empty;
         }
 
         
-        public TargMasini(int idMasina, string nume_vanzator, string nume_cumparator, string model, string firma, string an_fab, string culoare, string optiuni, string data_tranz, string pret)
+        public TargMasini(int idMasina, string nume_vanzator, string nume_cumparator, string firma, string model, string an_fab, string culoare, string optiuni, string data_tranz, string pret)
         {
             this.idMasina = idMasina;
             this.nume_vanzator = nume_vanzator;
             this.nume_cumparator = nume_cumparator;
-            this.model = model;
             this.firma = firma;
+            this.model = model;
             this.an_fab = an_fab;
             this.culoare = culoare;
             this.optiuni = optiuni;
@@ -63,9 +63,9 @@ namespace Masini
 
             idMasina = Convert.ToInt32(dateFisier[ID]);
             nume_vanzator = dateFisier[NUME_VANZATOR];
-            nume_cumparator = dateFisier[NUME_CUMPARATOR];
-            model = dateFisier[MODEL];
+            nume_cumparator = dateFisier[NUME_CUMPARATOR];        
             firma = dateFisier[FIRMA];
+            model = dateFisier[MODEL];
             an_fab = dateFisier[AN_FAB];
             culoare = dateFisier[CULOARE];
             optiuni = dateFisier[OPTIUNI];
@@ -80,8 +80,8 @@ namespace Masini
                 idMasina.ToString(),
                 (nume_vanzator ?? " NECUNOSCUT "),
                 (nume_cumparator ?? " NECUNOSCUT "),
-                (model ?? " NECUNOSCUT "),
                 (firma ?? " NECUNOSCUT "),
+                (model ?? " NECUNOSCUT "),
                 (an_fab ?? " NECUNOSCUT "),
                 (culoare ?? "NECUNOSCUT "),
                 (optiuni ?? "NECUNOSCUT "),

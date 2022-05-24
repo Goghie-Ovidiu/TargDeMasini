@@ -47,9 +47,10 @@ namespace Interfata
             string caleCompletaFisier = locatieFisierSolutie + "\\" + numeFisier;
             adminMasini = new AdministrareFisier(caleCompletaFisier);
             InitializeComponent();
-
+            this.Text = "Targ de Masini";
+/*
             //setare proprietati
-            this.Size = new Size(1000, 200);
+            this.Size = new Size(816, 400);
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(100, 100);
             this.Font = new Font("Arial", 9, FontStyle.Bold);
@@ -119,7 +120,7 @@ namespace Interfata
             btnAfisare.Text = "Afisare";
             btnAfisare.Click += Form1_Load;
             this.Controls.Add(btnAfisare);
-
+*/
         }
         private void OnButtonClicked(object sender, EventArgs e)
         {
@@ -171,9 +172,25 @@ namespace Interfata
                 lblsFirma[i].Top = (i + 1) * DIMENSIUNE_PAS_Y;
                 this.Controls.Add(lblsFirma[i]);
 
-
                 i++;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form2 f2=new Form2();
+            f2.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Cumparator f3 = new Cumparator();
+            f3.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

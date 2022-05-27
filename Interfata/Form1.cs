@@ -178,8 +178,13 @@ namespace Interfata
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 f2=new Form2();
-            f2.ShowDialog();
+            Vanzator f2 = new Vanzator();
+            int nrMasini;
+            adminMasini.GetMasini(out nrMasini);
+            if (nrMasini >= 150)
+                MessageBox.Show("S-a atins numarul maxim de masini.");
+            else
+                f2.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -191,6 +196,12 @@ namespace Interfata
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Admin_Click(object sender, EventArgs e)
+        {
+            Administrator f4=new Administrator();
+            f4.ShowDialog();
         }
     }
 }

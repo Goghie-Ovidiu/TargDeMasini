@@ -10,7 +10,7 @@ namespace Fisier
     public class AdministrareFisier
     {
 
-        private const int NR_MAX_MASINI = 50;
+        private const int NR_MAX_MASINI = 150;
         private string numeFisier;
 
         public AdministrareFisier(string numeFisier)
@@ -31,7 +31,7 @@ namespace Fisier
         }
 
 //Lab 3 cautarea dupa nume
-        public string GetMasina(string nume_vanzator, string nume_cumparator)
+        public string GetMasina(string nume_cumparator, string prenume_cumparator)
         {
             using (StreamReader streamReader = new StreamReader(numeFisier))
             {
@@ -39,7 +39,7 @@ namespace Fisier
                 while((linieFisier = streamReader.ReadLine()) != null)
                 {
                     string[] linie=linieFisier.Split(';');
-                    if(linie[1] == nume_vanzator && linie[2] == nume_cumparator)
+                    if(linie[1] == nume_cumparator && linie[2] == prenume_cumparator)
                     {
                         string result = string.Format("{0} {1} {2}", linie[0],linie[1],linie[2]);
                         return result;
@@ -47,7 +47,7 @@ namespace Fisier
                     
                 }
             }
-            return string.Format("{0} {1} ", nume_vanzator, nume_cumparator);
+            return string.Format("{0} {1} ", nume_cumparator, prenume_cumparator);
         }
 
         //cautare an fab

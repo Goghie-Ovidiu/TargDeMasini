@@ -8,7 +8,7 @@ namespace Masini
 {
     public class TargMasini
     {
-        private const char SEPARATOR_PRINCIPAL_FISIER = ' ';
+        private const char SEPARATOR_PRINCIPAL_FISIER = ';';
         private const int ID = 0;
         private const int NUME_VANZATOR = 1;
         private const int NUME_CUMPARATOR = 2;
